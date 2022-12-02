@@ -6,7 +6,11 @@ const sum = (a, b) => {
 };
 
 
-function First() {
+// function First() {
+function First({title}) {
+// function First({title, count}) {
+
+  console.log(title)
   // const newMessage = "Elena";
   // const newMessage = [1,2,3,4,5];
   // const newMessage = true;
@@ -17,7 +21,8 @@ function First() {
 
   return (
     <>
-      <h1>This is a header</h1>
+      <h1>{title}</h1>
+      {/* <h1>{count}</h1> */}
       {/* <p>{ newMessage }</p> */}
       <p>{JSON.stringify(newMessage)}</p>
       <p>{sum(1, 2)}</p>
