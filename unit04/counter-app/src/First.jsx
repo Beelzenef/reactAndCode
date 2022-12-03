@@ -1,16 +1,18 @@
 // Si no es necesario, se recominenda que los métodos
 // estén fuera de los functional components
 
+import PropTypes from "prop-types";
+
+
 const sum = (a, b) => {
   return a + b;
 };
 
-
 // function First() {
-function First({title}) {
-// function First({title, count}) {
+function First({ title }) {
+  // function First({title, count}) {
 
-  console.log(title)
+  console.log(title);
   // const newMessage = "Elena";
   // const newMessage = [1,2,3,4,5];
   // const newMessage = true;
@@ -28,6 +30,14 @@ function First({title}) {
       <p>{sum(1, 2)}</p>
     </>
   );
+}
+
+First.propTypes = {
+  title: PropTypes.string.isRequired
+};
+
+First.defaultProps = {
+  title: "No hay titulo"
 }
 
 export default First;
