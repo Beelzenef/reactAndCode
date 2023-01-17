@@ -1,28 +1,29 @@
 import { useState } from "react";
+import AddSearchTerm from "./components/AddSearchTerm";
 
-export const GifApp = ()=> {
+export const GifApp = () => {
+  const [gifsToSearch, setGifsToSearch] = useState(["anime", "scifi"]);
 
-    const [cats,setCats]=useState(["anime", "scifi"])
-   
-    const addRow=()=>{
-        console.log("adding");
-        let newCat="fantasy";
-        setCats([...cats,newCat])
-    }
+  const onAddNewTerm = (newTerm) => {
+    // console.log(newTerm);
+    setGifsToSearch([...gifsToSearch, newTerm]);
+  };
 
-    return ( 
-        <>
-            <h1>GifLurker</h1>
+  return (
+    <>
+      <h1>GifLurker</h1>
 
-            <button onClick={addRow}>Add</button>
-            <ol>
-                {cats.map( (c,index)=>
-                    (
-                        <li key={index}>{c}</li>
-                    )
-                )}
-        </ol>
-        </>
-    );
-}
+      <AddSearchTerm
+        // setGifsToSearch={setGifsToSearch}
+        onAddNewTerm={onAddNewTerm}
+      />
 
+      <ol>
+        {gifsToSearch.map((c, index) => (
+          <li key={index}>{c}</li>
+        ))}
+      </ol>
+    </>
+  );
+};
+//
