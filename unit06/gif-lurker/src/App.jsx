@@ -1,10 +1,12 @@
 import { useState } from "react";
 import AddSearchTerm from "./components/AddSearchTerm";
+import GifGrid from "./components/GifGrid";
 
 export const GifApp = () => {
   const [gifsToSearch, setGifsToSearch] = useState(["anime", "scifi"]);
 
   const onAddNewTerm = (newTerm) => {
+    if (gifsToSearch.includes(newTerm)) return;
     // console.log(newTerm);
     setGifsToSearch([...gifsToSearch, newTerm]);
   };
@@ -18,12 +20,9 @@ export const GifApp = () => {
         onAddNewTerm={onAddNewTerm}
       />
 
-      <ol>
-        {gifsToSearch.map((c, index) => (
-          <li key={index}>{c}</li>
-        ))}
-      </ol>
+      {gifsToSearch.map((searchTerm, index) => (
+        <GifGrid key={searchTerm} searchTerm={searchTerm} />
+      ))}
     </>
   );
 };
-//
