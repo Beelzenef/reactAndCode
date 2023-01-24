@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { getGifs } from "../helpers/getGifs";
+import GifItem from "./GifItem";
 
 function GifGrid({ searchTerm }) {
   const [gifs, setGifs] = useState([]);
@@ -18,11 +19,11 @@ function GifGrid({ searchTerm }) {
     <>
       <h3>{searchTerm}</h3>
 
-      <ol>
-        {gifs.map(({ id, title }) => (
-          <li key={id}>{title}</li>
+      <div className="card-grid">
+        {gifs.map((image) => (
+          <GifItem key={image.id} {...image} />
         ))}
-      </ol>
+      </div>
     </>
   );
 }
