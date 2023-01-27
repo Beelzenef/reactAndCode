@@ -1,23 +1,14 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { getGifs } from "../helpers/getGifs";
+import { useGetGifs } from "../hooks/useGetGifs";
 import GifItem from "./GifItem";
 
 function GifGrid({ searchTerm }) {
-  const [gifs, setGifs] = useState([]);
-
-  const getImages = async () => {
-    const gifsFound = await getGifs(searchTerm);
-    setGifs(gifsFound);
-  };
-
-  useEffect(() => {
-    getImages();
-  }, []);
+  const { gifs, isLoading } = useGetGifs(searchTerm);
 
   return (
     <>
       <h3>{searchTerm}</h3>
+
+      {isLoading && <h4>Loading...</h4>}
 
       <div className="card-grid">
         {gifs.map((image) => (
