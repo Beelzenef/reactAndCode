@@ -1,7 +1,7 @@
 import { useGetGifs } from "../hooks/useGetGifs";
 import GifItem from "./GifItem";
 
-function GifGrid({ searchTerm }) {
+export const GifGrid = ({ searchTerm }) => {
   const { gifs, isLoading } = useGetGifs(searchTerm);
 
   return (
@@ -17,6 +17,6 @@ function GifGrid({ searchTerm }) {
       </div>
     </>
   );
-}
+};
 
 export default GifGrid;

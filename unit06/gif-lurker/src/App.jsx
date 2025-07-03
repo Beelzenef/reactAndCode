@@ -1,6 +1,5 @@
 import { useState } from "react";
-import AddSearchTerm from "./components/AddSearchTerm";
-import GifGrid from "./components/GifGrid";
+import { AddSearchTerm, GifGrid } from "./components";
 
 export const GifApp = () => {
   const [gifsToSearch, setGifsToSearch] = useState(["vaporwave", "retrowave"]);

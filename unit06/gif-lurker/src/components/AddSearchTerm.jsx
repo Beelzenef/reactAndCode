@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function AddSearchTerm({ onAddNewTerm }) {
+export const AddSearchTerm = ({ onAddNewTerm }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const onNewSearchTerm = ({ target }) => {
@@ -14,7 +14,7 @@ function AddSearchTerm({ onAddNewTerm }) {
 
     const searchTermClean = searchTerm.trim();
     if (searchTermClean.length == 0) return;
-    
+
     // console.log(searchTermClean);
     // setGifsToSearch((gifsToSearch) => [...gifsToSearch, searchTerm]);
     // setSearchTerm('');
@@ -32,6 +32,6 @@ function AddSearchTerm({ onAddNewTerm }) {
       />
     </form>
   );
-}
+};
 
 export default AddSearchTerm;
