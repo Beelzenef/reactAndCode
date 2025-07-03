@@ -3,7 +3,7 @@ import AddSearchTerm from "./components/AddSearchTerm";
 import GifGrid from "./components/GifGrid";
 
 export const GifApp = () => {
-  const [gifsToSearch, setGifsToSearch] = useState(["anime", "scifi"]);
+  const [gifsToSearch, setGifsToSearch] = useState(["vaporwave", "retrowave"]);
 
   const onAddNewTerm = (newTerm) => {
     if (gifsToSearch.includes(newTerm)) return;
